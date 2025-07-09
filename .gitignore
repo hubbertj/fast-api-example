@@ -1,0 +1,55 @@
+# === Python ===
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.pdb
+*.egg-info/
+*.egg
+*.env
+*.venv
+env/
+venv/
+fastapienv/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# === macOS ===
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# === Logs and outputs ===
+*.log
+*.out
+
+# === IDEs and Editors ===
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# === Testing ===
+htmlcov/
+.tox/
+.nox/
+.coverage
+.cache/
+.pytest_cache/
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+
+# === FastAPI/Uvicorn specific (if using generated certs or reload files) ===
+*.pem
+*.cert
+*.key
+.reload
