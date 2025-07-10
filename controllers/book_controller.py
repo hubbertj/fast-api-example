@@ -7,6 +7,14 @@ router = APIRouter()
 async def get_books():
     return book_service.get_books()
 
+@router.get("/books/author/{author}")
+async def get_books_by_author(author: str):
+    return book_service.search_books(author)
+
+@router.get("/books/title/{title}")
+async def get_books_by_title(title: str):
+    return book_service.get_books_by_title(title)
+
 @router.get("/books/{book_id}")
 async def get_book(book_id: int):
     return book_service.get_book(book_id)
