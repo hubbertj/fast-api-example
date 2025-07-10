@@ -1,4 +1,5 @@
 from datetime import datetime
+from schemas.book_schema import BookSchema as book_model
 
 Books = [
     {'id': 1, 'title': '1984', 'author': 'George Orwell', 'year': 1949},
@@ -38,12 +39,14 @@ def get_book(book_id: int):
     else:
         return None
 
-def create_book(book: dict):
+def create_book(book: book_model):
     """
     Creates a new book and adds it to the list.
     """
-    Books.append(book)
-    return book
+    new_book = book.dict()
+    new_book['id'] = len(Books) + 1  # Assign a new ID
+    Books.append(new_book)
+    return new_book
 
 def update_book(book_id: int, book: dict):
     """

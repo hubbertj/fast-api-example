@@ -2,6 +2,7 @@ from datetime import datetime, date
 from typing import Optional
 from fastapi import APIRouter
 from services import book_service
+from schemas.book_schema import BookSchema as book_model
 
 router = APIRouter()
 
@@ -24,7 +25,7 @@ async def get_book(book_id: int):
     return book_service.get_book(book_id)
 
 @router.post("/books")
-async def create_book(book: dict):
+async def create_book(book: book_model):
     return book_service.create_book(book)
 
 @router.put("/books/{book_id}")
