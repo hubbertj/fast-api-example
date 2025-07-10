@@ -1,3 +1,5 @@
+from datetime import datetime
+
 Books = [
     {'id': 1, 'title': '1984', 'author': 'George Orwell', 'year': 1949},
     {'id': 2,'title': 'To Kill a Mockingbird', 'author': 'Harper Lee', 'year': 1960},
@@ -71,6 +73,18 @@ def search_books(query: str):
         if query.lower() in book['title'].lower() or query.lower() in book['author'].lower():
             results.append(book)
     return results
+
+def get_books_by_author_and_date(author: str, date: datetime.date):
+    """
+    Returns a list of books by a specific author and published on or before the given date.
+    """
+    results = []
+    for book in Books:
+        if book['author'].lower() == author.lower() and book['year'] <= date.year:
+            results.append(book)
+    return results
+
+
 
 
 

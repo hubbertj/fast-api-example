@@ -1,3 +1,5 @@
+from datetime import datetime, date
+from typing import Optional
 from fastapi import APIRouter
 from services import book_service
 
@@ -7,8 +9,10 @@ router = APIRouter()
 async def get_books():
     return book_service.get_books()
 
-@router.get("/books/author/{author}")
-async def get_books_by_author(author: str):
+@router.get("/books/author/{author}/")
+async def get_books_by_author(author: str, from_date: Optional[date] = None):
+    if from_date:
+        return book_service.get_books_by_author_and_date(author, from_date)
     return book_service.search_books(author)
 
 @router.get("/books/title/{title}")
