@@ -48,24 +48,25 @@ def create_book(book: book_model):
     Books.append(new_book)
     return new_book
 
-def update_book(book_id: int, book: dict):
+def update_book_by_author(book: book_model):
     """
-    Updates an existing book by its ID.
+    Updates an existing book by its author.
     """
-    if 0 <= book_id < len(Books):
-        Books[book_id] = book
-        return book
-    else:
-        return None
+    for i, existing_book in enumerate(Books):
+        if existing_book['author'].lower() == book.author.lower():
+            Books[i] = book.dict()
+            return Books[i]
+    return None
 
-def delete_book(book_id: int):
+def delete_book(book_title: str):
     """
-    Deletes a book by its ID.
+    Deletes a book by its title.
     """
-    if 0 <= book_id < len(Books):
-        return Books.pop(book_id)
-    else:
-        return None
+    for i, book in enumerate(Books):
+        if book['title'].lower() == book_title.lower():
+            del Books[i]
+            return True
+    return False
 
 def search_books(query: str):
     """

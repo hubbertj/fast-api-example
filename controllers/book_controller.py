@@ -1,8 +1,8 @@
-from datetime import datetime, date
+from datetime import date
 from typing import Optional
 from fastapi import APIRouter
 from services import book_service
-from schemas.book_schema import BookSchema as book_model
+from schemas.book_schema import BookSchema as bookModel
 
 router = APIRouter()
 
@@ -25,15 +25,15 @@ async def get_book(book_id: int):
     return book_service.get_book(book_id)
 
 @router.post("/books")
-async def create_book(book: book_model):
+async def create_book(book: bookModel):
     return book_service.create_book(book)
 
-@router.put("/books/{book_id}")
-async def update_book(book_id: int, book: dict):
-    return book_service.update_book(book_id, book)
+@router.put("/books")
+async def update_book(book: bookModel):
+    return book_service.update_book_by_author(book)
 
-@router.delete("/books/{book_id}")
-async def delete_book(book_id: int):
-    return book_service.delete_book(book_id)
+@router.delete("/books/{title}")
+async def delete_book(book_title: str):
+    return book_service.delete_book(book_title)
 
 
