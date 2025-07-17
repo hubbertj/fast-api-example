@@ -8,6 +8,8 @@ class BookSchema(BaseModel):
     year: Optional[int] = None
     isbn: Optional[str] = None
     summary: Optional[str] = None
+    description: Optional[str] = None
+    rating: Optional[int] = None
 
     class Config:
         from_attributes = True

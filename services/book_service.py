@@ -1,5 +1,5 @@
 from datetime import datetime
-from schemas.book_schema import BookSchema as book_model
+from schemas.book_schema import BookSchema as bookModel
 
 Books = [
     {'id': 1, 'title': '1984', 'author': 'George Orwell', 'year': 1949},
@@ -39,7 +39,7 @@ def get_book(book_id: int):
     else:
         return None
 
-def create_book(book: book_model):
+def create_book(book: bookModel):
     """
     Creates a new book and adds it to the list.
     """
@@ -48,7 +48,7 @@ def create_book(book: book_model):
     Books.append(new_book)
     return new_book
 
-def update_book_by_author(book: book_model):
+def update_book_by_author(book: bookModel):
     """
     Updates an existing book by its author.
     """
