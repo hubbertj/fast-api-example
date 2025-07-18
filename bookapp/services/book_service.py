@@ -1,5 +1,5 @@
 from datetime import datetime
-from schemas.book_schema import BookSchema as bookModel
+from bookapp.schemas.book_schema import BookSchema as bookModel
 
 Books = [
     {'id': 1, 'title': '1984', 'author': 'George Orwell', 'year': 1949},

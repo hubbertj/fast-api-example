@@ -1,8 +1,8 @@
 from datetime import date
 from typing import Optional
 from fastapi import APIRouter
-from services import book_service
-from schemas.book_schema import BookSchema as bookModel
+from bookapp.services import book_service
+from bookapp.schemas.book_schema import BookSchema as bookModel
 
 router = APIRouter()
 

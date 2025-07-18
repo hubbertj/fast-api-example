@@ -40,7 +40,7 @@ This is a Python project that uses [FastAPI](https://fastapi.tiangolo.com/) for 
   ``` 
 ### Run the Application
   ```bash
-    uvicorn main:app --reload
+    uvicorn main:booksApp --reload
   ```
 ### view all packages installed in the virtual environment
   ```bash 
